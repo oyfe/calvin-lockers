@@ -13,7 +13,7 @@ exports.addLocker = async (req, res) => {
 
 exports.getAvailableLockers = async (req, res) => {
     try {
-        const lcokers = lockerService.getAvailableLockers();
+        const lockers = lockerService.getAvailableLockers();
         res.status(200).json(lockers);
     } catch (error) {
         res.status(500).json({ error: error.message });

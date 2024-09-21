@@ -1,22 +1,26 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const User = require('./models/user');
-const Locker = require('./models/locker');
-const Rental = require('./models/rental');
+import express from 'express';
+import dotenv from "dotenv";
+import { connectDB } from './config/db.js'
+// const lockerRoutes = require('./routes/lockerRoutes');
 
 const app = express();
+app.use(express.json());
+dotenv.config();
+// app.use('/api/lockers', lockerRoutes);
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/calvin_lockers', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('Error connecting to MongoDB:', err));
+// app.get('/', (req, res) => {
+//   res.send('Server is up and running!');
+// });
 
 
-app.use('/api', userRoutes); 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'An internal server error occurred' });
+});
 
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
+  connectDB();
   console.log(`Server is running on port ${PORT}`);
 });
