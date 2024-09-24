@@ -1,8 +1,8 @@
 import express from 'express';
 import dotenv from "dotenv";
-import { connectDB } from './config/db.js'
+import { connectDB } from './config/db.js';
 // import { getAvailableLockers } from './services/lockerService.js';
-import lockerRoutes from "./routes/lockerRoutes.js"
+import lockerRoutes from "./routes/lockerRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -13,30 +13,6 @@ dotenv.config();
 //   res.send('Server is up and running!');
 // });
 
-// app.get('/api/lockers',async(req, res) => {
-//   try{
-//     const num_lock = await getAvailableLockers();
-//     res.json(num_lock);
-//   } catch(error){
-//     res.status(500  )
-//   }
-// })
-
-// app.post('/api/lockers', async (req, res) => {
-//   const locker = req.body;
-
-//   if (!locker.location || !locker.size) {
-//     return res.status(400).json({ success: false, message: "Please fill in on all the fields!" });
-//   }
-//   const newLocker = new Locker(locker);
-
-//   try {
-//     await newLocker.save();
-//     res.status(201).json({ success: true, data: newLocker })
-//   } catch (error) {
-//     res.status(500).json({success: false, message: "Server Error"})
-//   }
-// })
 
 app.use('/locker',lockerRoutes);
 
