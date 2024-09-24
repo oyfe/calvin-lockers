@@ -1,10 +1,10 @@
-const Locker = require('../models/locker');
+import Locker from '../models/locker';
 
 exports.addLocker = async (location, size) => {
     const locker = new Locker({ location, size });
     await locker.save();
     return locker;
-};
+};  
 
 exports.getAvailableLockers = async () => {
     const lockers = await Locker.find({ status: 'available' });

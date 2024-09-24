@@ -8,4 +8,6 @@ const lockerSchema = new mongoose.Schema({
 });
 
 // Export the Locker model
-module.exports = mongoose.model('Locker', lockerSchema);
+const Locker = mongoose.model('Locker', lockerSchema);
+
+export default Locker;

@@ -1,15 +1,18 @@
-const express = require('express');
-const lockerController = require('../controllers/lockerController');
+import express from 'express';
+// const lockerController = require('../controllers/lockerController');
 
 const router = express.Router();
-router.post('/', function (req, res) {
-    lockerController.addLocker
+router.get('/', (req, res) => {
+    // lockerController.addLocker
+    res.send('testing works!');
 });
-router.get('/', function (req, res) {
-    lockerController.getAvailableLockers
-});
-router.post('/:lockerId/rent', function (req, res) {
-    lockerController.rentLocker
-});
+// router.get('/', function (req, res) {
+//     lockerController.getAvailableLockers
+// });
+// router.post('/:lockerId/rent', function (req, res) {
+//     lockerController.rentLocker
+// });
 
-module.exports = router;
+// module.exports = router;
+
+export default router;

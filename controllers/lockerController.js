@@ -1,6 +1,8 @@
-const lockerService = require('../services/lockerService');
+// const lockerService = require('../services/lockerService');
+import Locker from '../models/locker';
 
 // Add new lockers
+// V masih salah
 exports.addLocker = async (req, res) => {
     try {
         const { location, size } = req.body;
