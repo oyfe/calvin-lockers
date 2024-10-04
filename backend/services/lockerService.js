@@ -1,13 +1,7 @@
 import Locker from '../models/locker.js';
 
 export const addLocker = async (location, size) => {
-    if (!locker.location || !locker.size) {
-        return res.status(400).json({
-            success: false,
-            message: "Please fill in on all the fields!"
-        });
-    }
-    const locker = new Locker({ location, size });
+    const locker = new Locker( location, size ); 
     await locker.save();
     return locker;
 };
