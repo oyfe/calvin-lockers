@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from "dotenv";
 import { connectDB } from './config/db.js';
-// import { getAvailableLockers } from './services/lockerService.js';
 import lockerRoutes from "./routes/lockerRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
@@ -15,8 +14,8 @@ dotenv.config();
 // });
 
 
-// app.use('/locker',lockerRoutes);
-app.use('/user',userRoutes);
+app.use('/locker',lockerRoutes);
+// app.use('/user',userRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

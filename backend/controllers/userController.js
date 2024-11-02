@@ -17,3 +17,12 @@ export const registerUser = async (req, res) => {
   }
 };
 
+
+export const signIn = async (req, res) => {
+  const user = req.body
+  try {
+
+  } catch (error) {
+
+  }
+};

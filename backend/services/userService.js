@@ -7,8 +7,10 @@ export const addUser = async (user) => {
     if (existingUser) {
         throw new Error('Email already exists');
     }
+    const SALT_ROUNDS = 10
+    const salt = await bcrypt.genSalt(SALT_ROUNDS)
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const userInfo = new User({
         first_name,
@@ -22,5 +24,3 @@ export const addUser = async (user) => {
 
     return userInfo;
 };
-
-// export const delete
